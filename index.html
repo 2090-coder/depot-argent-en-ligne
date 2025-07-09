@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dépôt d'argent sécurisé</title>
+</head>
+<body>
+  <h1>Dépôt d'argent</h1>
+  <form id="depositForm">
+    <label>Nom: <input type="text" id="name" required></label><br><br>
+    <label>Email: <input type="email" id="email" required></label><br><br>
+    <label>Montant (USD): <input type="number" id="amount" step="0.01" min="1" required></label><br><br>
+    <button type="submit">Déposer</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const form = document.getElementById('depositForm');
+const result = document.getElementById('result');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const amount = parseFloat(document.getElementById('amount').value);
+
+      const commission = amount * 0.0005; // 0.05%
+      const netAmount = amount - commission;
+
+      result.innerHTML = `
+        <p>Merci name pour votre dépôt de{amount.toFixed(2)} USD.</p>
+        <p>Commission prélevée: commission.toFixed(2) USD.</p>
+        <p>Montant net crédité:{netAmount.toFixed(2)} USD.</p>
+      `;
+
+      // Ici on enverra les infos au serveur ou via email (étape suivante)
+    });
+  </script>
+</body>
+</html>
