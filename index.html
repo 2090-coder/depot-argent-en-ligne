@@ -1,43 +1,53 @@
 <!DOCTYPE html>
-<html lang="fr">
+<HTML lang="fr">
 <head>
-<link rel="stylesheet" href="style.css">
-  <meta charset="UTF-8" />
-  <title>Dépôt d'argent sécurisé</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dépôt d'argent en ligne</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Dépôt d'argent</h1>
-  <form id="depositForm">
-    <label>Nom: <input type="text" id="name" required></label><br><br>
-    <label>Email: <input type="email" id="email" required></label><br><br>
-    <label>Montant (USD): <input type="number" id="amount" step="0.01" min="1" required></label><br><br>
-    <button type="submit">Déposer</button>
-  </form>
+  <header>
+    <h1>Dépôt d'argent en ligne</h1>
+    <p>Plateforme sécurisée - Conçue par Salomon Shukuru</p>
+  </header>
 
-  <div id="result"></div>
+  <nav>
+    <ul>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#cv">Mon CV</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <script>
-    const form = document.getElementById('depositForm');
-const result = document.getElementById('result');
+  <section id="accueil">
+    <h2>Bienvenue</h2>
+    <p>Ici vous pouvez déposer de l'argent en toute sécurité.</p>
+    <p><strong>Commission automatique :</strong> 0.05% revient au développeur.</p>
+  </section>
 
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
+  <section id="projets">
+    <h2>Mes projets</h2>
+    <ul>
+      <li>Application dépôt-argent-en-ligne</li>
+      <li>Système de gestion scolaire</li>
+    </ul>
+  </section>
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const amount = parseFloat(document.getElementById('amount').value);
+  <section id="cv">
+    <h2>Mon CV</h2>
+    <a href="cv.pdf" class="button" download>Télécharger mon CV</a>
+  </section>
 
-      const commission = amount * 0.0005; // 0.05%
-      const netAmount = amount - commission;
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email : shukurusalomon228@gmail.com</p>
+<p>Téléphone : +243 902 813 183</p>
+  </section>
 
-      result.innerHTML = `
-        <p>Merci name pour votre dépôt de{amount.toFixed(2)} USD.</p>
-        <p>Commission prélevée: commission.toFixed(2) USD.</p>
-        <p>Montant net crédité:{netAmount.toFixed(2)} USD.</p>
-      `;
-
-      // Ici on enverra les infos au serveur ou via email (étape suivante)
-    });
-  </script>
+  <footer>
+    <p>&copy; 2025 Salomon Shukuru. Tous droits réservés.</p>
+  </footer>
 </body>
 </html>
